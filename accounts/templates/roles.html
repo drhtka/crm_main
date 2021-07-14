@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!--table start-->
+<div class="d-flex justify-content-sm-center my-3 our-succes">
+Таблица смены ролей
+</div>
+    <div class="table-responsive table-role">
+<table class="table table-striped table-sm ">
+
+    <thead>
+        <tr>
+            <th>Имя пользователя</th>
+            <th>Емаил</th>
+            <th>Роль</th>
+            <th>Редактировать роль</th>
+        </tr>
+    </thead>
+    {% for roles_edit_s in role_name %}
+        <form action="{% url 'accounts:roles' %}" method="post">
+               {% csrf_token %}
+             {{ form.as_p }}
+        <input type="hidden" value="{{ roles_edit_s.1 }}" name="user_hid">
+            <tbody>
+                <tr>
+                    <td>{{ roles_edit_s.0 }}</td>
+                    <td>{{ roles_edit_s.1 }}</td>
+                    <td>
+                        <select name="rolless">
+{#                        {% for rolis_list_s in rolis_list %}#}
+                        {% comment %}
+                             <option value="{{ rolis_list_s.0 }}">{{ roles_list_s.1 }}</option>
+                        {% endcomment %}
+{#                             <option value="{{ roles_edit_s.4 }}">{{ roles_edit_s.4 }}</option>#}
+                            <option selected value="" >{{ roles_edit_s.4 }}</option>
+                            <option value="1">Администратор</option>
+                            <option value="2">Бухгалтер</option>
+                            <option value="3">Менеджер</option>
+                            <option value="4">Оператор интернет</option>
+                            <option value="5">Оператор ктв</option>
+{#                            <div>{{ rolis_list_s }}</div>111111111111111#}
+{#                        {% endfor %}#}
+                        </select>
+                    </td>
+                    <td><p><input type="submit" value="редактировать"></p></td>
+                </tr>
+            </tbody>
+        </form>
+    {% endfor %}
+
+</table>
+    </div>
+<!--table end-->
+
+{% endblock content %}

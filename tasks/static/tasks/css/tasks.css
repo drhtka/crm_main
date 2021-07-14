@@ -1,0 +1,22 @@
+.coment {
+    color: green; /* Цвет текста */
+    font-weight: bold; /* Жирное начертание */
+}
+.term {
+    border-bottom: 1px dashed red; /* Подчеркивание под текстом пунктир*/
+}
+.term-gray {
+    border-bottom: 1px double gray; /* Подчеркивание под текстом */
+}
+.task_work {
+    color: green; /* Цвет текста */
+    font-weight: bold; /* Жирное начертание */
+}
+.task_end {
+    color: rgba(7, 72, 241, 0.91); /* Цвет текста */
+    font-weight: bold; /* Жирное начертание */
+}
+.task_cancellation {
+    color: rgba(241, 7, 116, 0.91); /* Цвет текста */
+    font-weight: bold; /* Жирное начертание */
+}

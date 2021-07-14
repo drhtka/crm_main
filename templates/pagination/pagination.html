@@ -1,0 +1,35 @@
+{% load static %}
+{#<link href="{% static "big_retail/css/my_style.css" %}" rel="stylesheet" type="text/css">#}
+<link href="{% static "pagination/my_pagin.css" %}" rel="stylesheet" type="text/css">
+
+{% if is_paginated %}
+    {% load i18n %}
+    <div class="pagination">
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}{{ getvars }}{{ hashtag }}" class="prev pagination__link_state_active pagination__link line_null array">{% trans " < " %}</a>
+        {% else %}
+            <span class="disabled prev pagination__link_state_active pagination__link line_null" > {% trans "Первая&nbsp;&nbsp;" %}</span>
+        {% endif %}
+        {% for page in pages %}
+            {% if page %}
+                {% ifequal page page_obj.number %}
+                    <!-- Вот здесь в вашем случае выводится текущая страница -->
+                    <!-- можно добавить <b> или <strong> или попросту ничего не -->
+                    <!-- перегружать, а описать класс current -->
+                    <span class="current page pagination__link_state_active pagination__link">{{ page }}</span>
+                {% else %}
+                    <a href="?page={{ page }}{{ getvars }}{{ hashtag }}" class="page pagination__link_state_active pagination__link">
+                        {{ page }}</a>
+                {% endifequal %}
+            {% else %}
+                ...
+            {% endif %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}{{ getvars }}{{ hashtag }}"
+               class="next pagination__link_state_active pagination__link line_null array pagination__link_index">{% trans " > " %}</a>
+        {% else %}
+            <span class="disabled next pagination__link_state_active pagination__link line_null">{% trans "&nbsp;&nbsp;Последняя" %}</span>
+        {% endif %}
+    </div>
+{% endif %}

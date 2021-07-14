@@ -1,0 +1,55 @@
+.status_task{
+    /*color: rgba(69, 36, 206, 0.99); !* Цвет текста *!*/
+    font-size: 20px; /* Размер текста */
+    /*font-weight: bold; !* Жирное начертание *!*/
+    /*text-shadow: 2px 2px 4px grey; !* Текст текста *!*/
+    text-align: center !important;
+    margin: 0 auto !important;
+   }
+   .coment_task{
+    color: blue; /* Цвет текста */
+    font-size: 20px; /* Размер текста */
+    text-shadow: 2px 2px 4px grey; /* Текст текста */
+   }
+   .coment {
+    color: green; /* Цвет текста */
+    font-weight: bold; /* Жирное начертание */
+   }
+   .answer_coment {
+    color: #001c80; /* Цвет текста */
+    font-weight: bold; /* Жирное начертание */
+   }
+   .term {
+    border-bottom: 1px dashed red; /* Подчеркивание под текстом */
+   }
+   .task_work {
+    color: green; /* Цвет текста */
+    font-weight: bold; /* Жирное начертание */
+   }
+    .task_end {
+    color: rgba(7, 72, 241, 0.91); /* Цвет текста */
+    font-weight: bold; /* Жирное начертание */
+   }
+    .task_cancellation {
+    color: rgba(241, 7, 116, 0.91); /* Цвет текста */
+    font-weight: bold; /* Жирное начертание */
+   }
+    .task_no_work {
+    color: rgba(103, 116, 115, 0.91); /* Цвет текста */
+    font-weight: bold; /* Жирное начертание */
+   }
+
+   .body_content{
+        display: flex;
+    }
+   #bloc_content{
+       color: blue;
+   }
+   #bloc_content div>div:first-child{
+       color: red;
+   }
+ .parent_task{
+     display: flex; /**/
+     justify-content: space-between; /*расстягиват по краям*/
+     width: 50%;
+ }

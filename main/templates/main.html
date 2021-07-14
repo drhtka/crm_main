@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+{% load static %}
+{% load pagination_tags %}
+{% url 'accounts:update' as update_url %}
+{% url 'accounts:register' as register_url %}
+{% url 'accounts:login' as login_url%}
+{% block extra_head %}
+
+{% endblock %}
+{% comment %}{% endcomment %}
+{% block lk %}
+    <link rel="stylesheet" type="text/css" href="{% static 'main/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'pagination/my_pagin.css' %} ">
+    <script type="text/javascript" src='{% static "main/js/jquery.min.js" %}'></script>
+    <script type="text/javascript" src='{% static "main/js/popper.min.js" %}'></script>
+    <script type="text/javascript" src='{% static "main/js/bootstrap.min.js" %}'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.1/chart.min.js"></script>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="d-flex justify-content-sm-center my-3 our-succes">Наши успехи</div>
+
+
+            <canvas id="bar-chart" width="800" height="450"></canvas>
+            <script>
+                new Chart($("#bar-chart"), {
+                    type: 'bar',
+                    data: {
+                        labels: ["Администратор", "Бухгалтер", "Менеджер", "Оператор КТВ", "Оператор Интернет"],
+                        datasets: [
+                            {
+                                label: "График (прогресса:)",
+                                backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                                data: [1478, 2267, 734, 784, 433]
+                            }
+                        ]
+                    },
+                    options: {
+                        legend: {display: false},
+                        title: {
+                            display: true,
+                            text: 'Predicted world population (millions) in 2060'
+                        }
+                    }
+                });
+            </script>
+        </div>
+        <div class="col-md-6">
+            <div class="d-flex justify-content-sm-center my-3 our-succes">Зарплата сотрудников</div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Должность</th>
+                    <th scope="col">Оплата грн</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for all_array_end_s in user_id_name_zp %}
+                    <tr class="hi-tr">
+                        <td>{{ all_array_end_s.username }}</td>
+                        <td>{{ all_array_end_s.zp }}</td>
+                    </tr>
+
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock lk %}
+{% block crm-table %}
+
+    <!--table all start-->
+
+    {% autopaginate final_array 12 %}
+    <div class="pagin-up mt-5 mb-5">{% paginate %}</div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Номер</th>
+            <th scope="col">Название</th>
+            <th scope="col">Текст</th>
+            <th scope="col" class="date-create">Начало</th>
+            <th scope="col">Конец</th>
+            <th scope="col">Статус</th>
+            {#            <th scope="col">Посмотреть</th>#}
+            <th scope="col">Должность</th>
+            <th scope="col">Ник</th>
+            {#            <th scope="col">Потраченное время</th>#}
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <p>{% for all_task_s in final_array %}</p>
+
+            <tr>
+                <th scope="row">{{ all_task_s.id }}</th>
+                <td>{{ all_task_s.inputtitle|truncatewords:10|linebreaks }}</td>
+                <td>{{ all_task_s.textarea|truncatechars:9|linebreaks}}</td>
+                <td class="date-create">{{ all_task_s.created|date:"d-m-Y" }}</td>
+
+                <td style="color: {{ color_task }}">{{ all_task_s.data_dedline }}</td>
+                <td>
+                    {% if  all_task_s.status_task == '1' %}
+                        <div class="task_work">В работе</div>
+                    {% endif %}
+                    {% if  all_task_s.status_task == '2' %}
+                        <div class="task_end">Закончена</div>
+                    {% endif %}
+                    {% if  all_task_s.status_task == '3' %}
+                        <div class="task_cancellation">Отменена</div>
+                    {% endif %}
+                    {% if  all_task_s.status_task == '4' %}
+                        <div class="task_no_work">Не выполнена</div>
+                    {% endif %}
+                </td>
+
+                {#                <td><a href="{% url 'taskcard' %}?task={{ all_task_s.0 }}">Подробнее</a></td>#}
+                <td>{{ all_task_s.role }}</td>
+                <td>{{ all_task_s.username }}</td>
+
+            </tr>
+            {#            {{ all_task_s.username }}#}
+        {% endfor %}
+
+        </tbody>
+    </table>
+    <div class="pagin-down">{% paginate %}</div>
+    <!--table all end-->
+{% endblock crm-table %}
+
+{% block JS %}
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="/docs/4.4/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="/docs/4.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-6khuMg9gaYr5AxOqhkVIODVIvm9ynTT5J4V1cfthmT+emCG6yVmEZsRHdxlotUnm" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+    <script src="dashboard.js"></script>
+
+
+
+{% endblock JS %}

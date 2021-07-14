@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+<title>{% block title %}Задача{% endblock %}</title>
+{% block content %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!--1 -->   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <!--2 -->   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+
+    <script src="{% static 'vendor/moment.js-2.23.0/moment.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap-4-5.1.2/css/tempusdominus-bootstrap-4.min.css' %}">
+    <script src="/static/vendor/bootstrap-4-5.1.2/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="hhttps://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/ru.min.js"></script>
+
+    {% block extra_head %}
+        <link rel="stylesheet" href="{% static 'tasks/css/tasks.css' %} ">
+    {% endblock %}
+
+    <p style="font-weight: bolder" class="mt-3">Задача для: {{ user_task_name }}</p>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Номер</th>
+            <th scope="col">Название</th>
+            <th scope="col">Текст</th>
+            <th scope="col">Файл</th>
+            <th scope="col">Дата сдачи</th>
+            <th scope="col">Должность</th>
+            <th scope="col">Дедлайн</th>
+            <th scope="col">Статус</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{ final_array.0.id }}</td><!--num-->
+            <td>{{ final_array.0.inputtitle }}</td><!--Название-->
+            <div class="col"><td class="width-td">{{ final_array.0.textarea }}</td></div><!--Детальнее-->
+            <td><a href="{{ MEDIA_URL }}{{ final_array.0.upload_file_name }}">Скачать</a></td>
+            <td>{{ final_array.0.data_dedline|safe }}</td><!--Дата-->
+            <td>{{ user_task_roles }}</td><!--Пользователь-->
+            <td>{{ final_array.0.time_task|slice:":5" }}</td><!--Потраченное время-->
+            <td>
+                {% if final_array.0.status_task == '1' %}
+                    <div class="task_work">В работе</div><!--Статус-->
+                {% endif %}
+                {% if final_array.0.status_task == '2' %}
+                    <div class="task_end">Закончена</div>
+                {% endif %}
+                {% if final_array.0.status_task == '3' %}
+                    <div class="task_cancellation">Отменена</div>
+                {% endif %}
+                {% if final_array.0.status_task == '4' %}
+                    <div class="task_cancellation">Не выполнена</div>
+                {% endif %}
+            </td><!--Статус-->
+        </tr>
+
+        </tbody>
+    </table>
+
+    <div class="row">
+    <div class="col-md-6">
+        <form class="stat-card needs-validation" method="post" action="{% url 'taskcard' %}" novalidate>
+            {% csrf_token %}
+            <input type="hidden" name="id_state_task" value="{{ final_array.0.id }}" required>
+            <div class="invalid-feedback">
+                Выберите статус
+            </div>
+            <p><select class="select-status-task form-control" type="number" name="stat_task" required>
+                <option disabled selected value="" >Статус задачи</option>
+                <option value="1">В работе</option>
+                <option value="2">Закончена</option>
+                <option value="3">Отменена</option>
+                <option value="4">Не выполнена</option>
+            </select></p>
+            <input class="my-1 px-2 btn btn-success" value="Изменить статус задачи" type="submit" >
+            <div class="invalid-feedback">
+                Выберите статус
+            </div>
+        </form>
+    {% if user.username != final_array.0.username %}
+        <form method="post" action="{% url 'comments:createcomments' %}" class="needs-validation" novalidate>
+            {% csrf_token %}
+            <input type="hidden" name="id_com_task" value="{{ final_array.0.id }}">
+            <input type="hidden" name="slug-com_task" value="{{ final_array.0.slug }}">
+            <input type="hidden" name="comm_user" value="{{ user.username }}">
+            <input type="hidden" name="comm_user_id" value="{{ user.id }}">
+            <p><textarea class="my-4 input-title form-control " name="comment" maxlength="300" cols="31" rows="5" placeholder="Комментарий" style="resize: none" required></textarea></p>
+
+            </p><input class="px-2 btn btn-success" id="validationTextarea" value="Комментарий к задаче" type="submit" required>
+            <div class="invalid-feedback">
+                Впишите текст
+            </div>
+        </form><br>
+        <form action="{% url 'comments:createcomments' %}" method="post"  class="needs-validation" novalidate>
+            {% csrf_token %}
+            <input type="hidden" name="user_id" value="{{ final_array.0.id_users }}">
+            <input type="hidden" name="task_id" value="{{ final_array.0.id }}">
+            {% if final_array.0.status_task != 2 and user.id == 2 %}
+                <div class="mb-3" >{{ form_date }}
+                    <input  class="mt-3 btn btn-success"  type="submit" value="Отправить" required>
+                    <div class="invalid-feedback">
+                        Впишите часы дедлайна
+                    </div>
+                </div>
+            {% endif %}
+        </form>
+    {% endif %}
+    </div>
+    {% if user.username != final_array.0.username %}
+    <div class="col-md-6 ">
+        <h5><div style="color: #0e0e0e; font-weight: bold">Переписка:</div></h5>
+
+        <div class="comm_with_daa">
+            {% for comment_s in comment %}
+                <div class="term-gray  mt-3"></div>
+                {#                <div>{{ comment_s.answer_num }}</div>#}
+                {#                <div>{{ comment_s.answer_num }}</div>#}
+
+                <div class=" mt-3" style="font-size:10px">{{ comment_s.date_answer }}</div>
+                {% if comment_s.owner_id == '2' %}
+                    <div class=" task_cancellation ">{{ comment_s.owner_name}}</div>
+                {% else %}
+                    <div class=" task_end">{{ comment_s.owner_name}}</div>
+                {% endif %}
+
+
+                {#                <div>{{ comment_s.owner_name}}</div>#}
+                <div>{{ comment_s.answer_text}}</div>
+
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+{% endblock content %}
+{% block JS %}
+    <script type="text/javascript" src="{% static "tasks/js/tasks.js" %}"></script>
+
+{% endblock JS %}

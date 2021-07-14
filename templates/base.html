@@ -1,0 +1,160 @@
+{% load static %}
+{% url 'accounts:update' as update_url %}
+{% url 'accounts:register' as register_url %}
+{% url 'accounts:login' as login_url%}
+
+<!doctype html>
+<html lang="en">
+  <head>
+
+{#      <script src="{% static "initializr/js/vendor/modernizr-2.8.3-respond-1.4.2.min.js" %}"></script>#}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="icon" href="{% static 'favicon.ico' %} ">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <!-- Favicons -->
+{#      <link rel="apple-touch-icon" href="/docs/4.4/assets/img/favicons/apple-touch-icon.png" sizes="180x180">#}
+{#      <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">#}
+{#      <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">#}
+{#      <link rel="manifest" href="/docs/4.4/assets/img/favicons/manifest.json">#}
+{#      <link rel="mask-icon" href="/docs/4.4/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">#}
+{#      <link rel="icon" href="/docs/4.4/assets/img/favicons/favicon.ico">#}
+      <meta name="msapplication-config" content="/docs/4.4/assets/img/favicons/browserconfig.xml">
+      <meta name="theme-color" content="#563d7c">
+      <!--DateTime Picker Example-->
+
+{#      <!-- Bootstrap -->#}
+{#      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">#}
+{#      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>#}
+{#      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>#}
+{#      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>#}
+{##}
+{#      <!-- Font Awesome -->#}
+{#      <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">#}
+{#      <!--DateTime Picker Example  END-->#}
+{#      <script src="{% static 'main/js/valid.js' %}"></script>#}
+      {% block extra_head %}
+      {% endblock %}
+      <link rel="stylesheet" href="{% static 'main/css/main.css' %} ">
+      <link rel="stylesheet" href="{% static 'main/css/style.css' %} ">
+      <link rel="stylesheet" href="{% static 'pagination/my_pagin.css' %} ">
+      <style>
+          .bd-placeholder-img {
+              font-size: 1.125rem;
+              text-anchor: middle;
+              -webkit-user-select: none;
+              -moz-user-select: none;
+              -ms-user-select: none;
+              user-select: none;
+          }
+
+          @media (min-width: 768px) {
+              .bd-placeholder-img-lg {
+                  font-size: 3.5rem;
+              }
+          }
+      </style>
+
+
+    <title>{% block title %}СРМ {% endblock %}</title>
+  </head>
+  <body>
+  <div class="container">
+  {% block header %}
+
+{#            <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">#}
+{#                <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>#}
+{#                <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">#}
+{#                <ul class="navbar-nav px-3">#}
+{#                    <li class="nav-item text-nowrap">#}
+{#                        <a class="nav-link" href="#">Sign out</a>#}
+{#                    </li>#}
+{#                </ul>#}
+{#            </nav>#}
+
+      <nav class="navbar navbar-expand-lg navbar-dark header_my mt-3" style="background-color: #bbbbbb;">
+      <a class="navbar-brand" href="{% url 'main:main' %}" id="brand">Главная</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+
+          {% if user.is_authenticated %}
+        {% if user.role == '1' %}
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'lk_admin' %} ">Админка и выставление задач</a>
+            </li>
+        {% endif %}
+            {% if user.role != '1' %}
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'lk_user' %} ">Личный кабинет</a>
+              </li>
+            {% endif %}
+{##}
+{#              <li class="nav-item">#}
+{#                  <a class="nav-link" href="{% url 'roles' %}">Права пользователей</a>#}
+{#              </li>#}
+
+
+
+              <li class="nav-item">
+                  <a class="nav-link"><span class="user-text-cal-nav">Вы вошли как: </span><span class="user-text-cal-nav-2">{{ user.username }}</span></a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{% url 'accounts:logout' %} ">Выйти</a>
+              </li>
+
+            <li class="nav-item {% if request.path == update_url %} active {% endif %} ">
+{#              <a class="nav-link" href="{% url 'accounts:update' %} ">Профиль</a>#}
+            </li>
+
+          {% else %}
+            <li class="nav-item {% if request.path == login_url %} active {% endif %}">
+              <a class="nav-link" href="{% url 'accounts:login' %}">Войти</a>
+            </li>
+          <li class="nav-item {% if request.path == register_url %} active {% endif %}">
+              <a class="nav-link" href="{% url 'accounts:register' %}">Регистрация</a>
+            </li>
+          {% endif %}
+
+        </ul>
+      </div>
+    </nav>
+
+  {% endblock header %}
+
+  {% block body %}
+      {% block lk %}{% endblock lk %}
+  {% block crm-table %}
+  {% endblock crm-table %}
+{#  {% block lk %}{% endblock lk %}#}
+  {% endblock body %}
+  <div class="container"></div>
+      {% block content %}{% endblock content %}
+
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+{#    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>#}
+{#    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>#}
+{#    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>#}
+    {% block JS %}{% endblock JS %}
+  </div>
+  <div class="footer_line">
+  {% block footer %}
+
+      <div class="footer_my container">
+          <div class="text_footer"><span class="pixel">Copyright CRM</span></div>
+      </div>
+
+  {% endblock footer %}
+  </div>
+  </body>
+</html>
+
+
+

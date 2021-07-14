@@ -1,0 +1,310 @@
+{% extends 'base.html' %}
+{% load static %}
+{#{% load i18n %}#}
+{% load pagination_tags %}
+
+{% block header %}
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!--1 -->   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <!--2 -->   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <script src="{% static 'vendor/moment.js-2.23.0/moment.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'vendor/bootstrap-4-5.1.2/css/tempusdominus-bootstrap-4.min.css' %}">
+    <script src="/static/vendor/bootstrap-4-5.1.2/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="hhttps://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/locale/ru.min.js"></script>
+
+
+    {#            <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">#}
+    {#                <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>#}
+    {#                <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">#}
+    {#                <ul class="navbar-nav px-3">#}
+    {#                    <li class="nav-item text-nowrap">#}
+    {#                        <a class="nav-link" href="#">Sign out</a>#}
+    {#                    </li>#}
+    {#                </ul>#}
+    {#            </nav>#}
+
+    <nav class="navbar navbar-expand-lg navbar-dark header_my mt-3 " style="background-color: #bbbbbb;">
+        <a class="navbar-brand" href="{% url 'main:main' %}" id="brand">Главная</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+
+                {% if user.is_authenticated %}
+{##}
+{#                    <li class="nav-item">#}
+{#                        <a class="nav-link" href="{% url 'lk_user' %} ">Личный кабинет</a>#}
+{#                    </li>#}
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'accounts:roles' %}">Права пользователей</a>
+                    </li>
+
+
+
+                    <li class="nav-item">
+                        <a class="nav-link"><span class="user-text-cal-nav">Вы вошли как: </span><span class="user-text-cal-nav-2">{{ user.username }}</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'accounts:logout' %} ">Выйти</a>
+                    </li>
+
+                    <li class="nav-item {% if request.path == update_url %} active {% endif %} ">
+                        {#              <a class="nav-link" href="{% url 'accounts:update' %} ">Профиль</a>#}
+                    </li>
+
+                {% else %}
+                    <li class="nav-item {% if request.path == login_url %} active {% endif %}">
+                        <a class="nav-link" href="{% url 'accounts:login' %}">Войти</a>
+                    </li>
+                    <li class="nav-item {% if request.path == register_url %} active {% endif %}">
+                        <a class="nav-link" href="{% url 'accounts:register' %}">Регистрация</a>
+                    </li>
+                {% endif %}
+
+            </ul>
+        </div>
+    </nav>
+
+{% endblock header %}
+
+{% block crm-table %}
+    <style>
+        .no_task_style{
+            display: none;
+        }
+    </style>
+    {#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">#}
+<div class="container">
+    <!--table all start-->
+    <div class="d-flex justify-content-sm-center my-3 our-succes">{{ no_task }}</div>
+    {% autopaginate final_array 12 %}
+    {% paginate %}
+    <table class="table table-striped {{ no_task_style }}">
+        <thead>
+        <tr>
+            <th scope="col">Номер</th>
+            <th scope="col">Название</th>
+            <th scope="col" class="date-create">Начало</th>
+            <th scope="col">Дедлайн</th>
+            <th scope="col">Статус</th>
+            <th scope="col">Текст</th>
+
+            <th scope="col">Посмотреть</th>
+            <th scope="col">Пользователь</th>
+            <th scope="col">Время</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <p>{% for all_task_s in final_array %}</p>
+            <tr>
+                <th scope="row">{{ all_task_s.0 }}</th>
+                <td>{{ all_task_s.2 }}</td>
+
+                <td class="date-create">{{ all_task_s.4|date:"d-m-Y" }}</td>
+                <td style="color: {{ all_task_s.10 }}">{{ all_task_s.6 }}</td>
+                <td>
+                    {% if  all_task_s.5 == '1' %}
+                        <div class="task_work">В работе</div>
+                    {% endif %}
+                    {% if  all_task_s.5 == '2' %}
+                        <div class="task_end">Закончена</div>
+                    {% endif %}
+                    {% if  all_task_s.5 == '3' %}
+                        <div class="task_cancellation">Отменена</div>
+                    {% endif %}
+                    {% if  all_task_s.5 == '4' %}
+                        <div class="task_no_work">Не выполнена</div>
+                    {% endif %}
+                </td>
+                <td>{{ all_task_s.3|truncatechars:9|linebreaks}}</td>
+                <td><a href="{% url 'taskcard' %}?task={{ all_task_s.0 }}">Подробнее</a></td>
+                <td>{{ all_task_s.8 }}</td>
+                {#            <td>{{ all_task_s.11|time:"H:i" }}</td>#}
+                <td>{{ all_task_s.11|slice:":5" }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="pagin-down">{% paginate %}</div>
+</div>
+    <!--table all end-->
+{% endblock crm-table %}
+
+{% block lk %}
+
+    <!--datetimepicker-->
+    {#<p><a href="{% url 'roles' %}"><font color="green">Права пользователей</font></a></p>#}
+    <!-- Выставление задачи -->
+    {#<form>#}
+    {#    {{ form_date }}111111#}
+    {#</form>#}
+    <p class="get-task our-succes mt-3">Поставить задачу</p>
+
+    <form action="{% url 'createtask:lk_task' %}" enctype="multipart/form-data" method="post" class="needs-validation" novalidate>
+        {% csrf_token %}
+        <div class="row">
+
+            {#            {{ form.as_p }}#}
+            <div class="col-md-6 mb-3">
+                <p></p>
+                <!--start valid botstrap -->
+                <div class="w-100 ml-1">
+                    <input class="input-title form-control my-3" id="validationTooltip01" type="text" name="title_task" maxlength="20" placeholder="Название" required>
+                    <div class="invalid-feedback">
+                        Введите название
+                    </div>
+                </div>
+                <div class="w-100 ml-1">
+                    <textarea class="textarea_task form-control my-4" id="validationTextarea" name="desk_task" maxlength="300" cols="31" rows="5" placeholder="Подробно" required></textarea>
+                    <div class="invalid-feedback">
+                        Введите текст
+                    </div>
+                </div>
+            </div>
+            <!--end valid botstrap -->
+
+            <div class="col-md-6">
+
+                <div class="row pad-select">
+                    <div class="col-md-12 select-role-col mr-1">
+                        {#                {{ task_list_users }}#}
+                        <p><select class="select-role form-control" type="number" name="role" required>
+
+                            <option disabled selected value="" id="validationTooltip01">Выбрать</option>
+
+                            {% for task_list_users_s in task_list_users %}
+                                <option value="{{ task_list_users_s.id }}">{{ task_list_users_s.username }}</option>
+                            {% endfor %}
+
+                        </select></p>
+
+                        {#                    {{ form_user.as_p }}#}
+                    </div>
+
+                </div>
+
+                <!-- Загрузить текстовый файл -->
+
+                <div class="costum-file my-2 mt-2">
+                    <input type="file" name="input_file" class="form-control" id="customFileLang" aria-label="file example" accept="text/*" required>
+                    <div class="invalid-feedback file-pad">Файл не выбран</div>
+                </div>
+
+                <div class="row mt-4">
+
+                    {##}
+                    <div class="col-md-6 clock-flex">
+
+                        {#                    <input class="mar-top-time mar-lef my-0" name="time_tisk" placeholder="Время выполнения задачи">#}
+                        <div class="mar-top-time mar-lef my-0">{{ form_date.time_task }}
+                            <div class="invalid-feedback clock-pad">Выберете время</div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+
+                        <div class="input-group date select-role-adm" id="datetimepicker1" data-target-input="nearest">
+                            {{ form_manual.date }}
+                            <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            </div>
+
+                            <div class="invalid-feedback right_date">Выберите дату</div>
+                        </div>
+
+                    </div>
+
+                    <div></div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mt-2 padd-task">
+                        <input value="Выставить задачу" type="submit" class="my-4 mar-lef btn btn-success">
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </form>
+    <!-- конец Выставление задачи -->
+
+
+    <!-- Таблица все задачи -->
+
+    <!-- конец таблицы все задачи -->
+
+    <!--Таблица время на задачи-->
+    <div class="w-100"></div>
+    <div class="d-flex justify-content-sm-center my-3 our-succes">Зарплата сотрудников и наработанные часы</div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Должность</th>
+            <th scope="col" >Потраченное время</th>
+            <th scope="col">Оплата грн</th>
+        </tr>
+        </thead>
+        <tbody>
+        <p>{% for all_array_end_s in all_array_end %}</p>
+            <tr>
+
+                <td>{{ all_array_end_s.0 }}</td>
+                <td>{{ all_array_end_s.1 }}</td>
+                <td>{{ all_array_end_s.2 }}</td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+    <!-- конец таблицы время на задачи -->
+    <!-- кокомментарии-->
+    {% for new_tsk_tmp_array_s_s in new_tsk_tmp_array_s %}
+        <p><div class="coment">Коментарий: {{ new_tsk_tmp_array_s.5 }}</div></p>
+        <p>Ответ на коментарий:<div class="answer_coment">{{ new_tsk_tmp_array_s.7 }}</div></p>
+
+        <p>{% endfor %}</p>
+    {% for username_lk_s in username_lk %}
+        <div>{{ username_lk_s }}</div>
+    {% endfor %}
+    <!-- конец кокомментарии-->
+    <div class="row bloc_content">
+
+    <div id=" col-md-8"></div>
+    <form action="." method="get" style="width: 28%;">
+
+
+        {#    <button type="submit" class="btn btn-success">Submit</button>#}
+        {#</form>#}
+
+
+        <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+            {{ form_manual.date }}
+            <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+            </div>
+        </div>
+            <button type="submit" id="select_date" class="btn btn-success my-3">Выбрать день</button>
+
+        <!-- конец Просмтр задач по выбранной дате в календаре-->
+    </form>
+    <div class="button-select-all-adm">
+        <a class="nav-link button-select-all" href="{% url 'lk_admin' %} ">
+            <button type="submit" class="btn btn-success">Показать все задачи</button>
+        </a>
+    </div>
+    </div>
+    </div>
+    <!--end datetimepicker-->
+
+{% endblock %}
+
+{% block JS %}<script type="text/javascript" src="{% static "lk/js/lk_admin.js" %}"></script>{% endblock JS %}

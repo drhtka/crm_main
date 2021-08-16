@@ -194,8 +194,9 @@
                 <!-- Загрузить текстовый файл -->
 
                 <div class="costum-file my-2 mt-2">
-                    <input type="file" name="input_file" class="form-control" id="customFileLang" aria-label="file example" accept="text/*" required>
+                    <input type="file" name="input_file" class="form-control" id="customFileLang" aria-label="file example" accept="*.txt" required="">
                     <div class="invalid-feedback file-pad">Файл не выбран</div>
+                    <div id="invalid-feedback-file">Не верный формат файла</div>
                 </div>
 
                 <div class="row mt-4">
@@ -227,7 +228,8 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4 mt-2 padd-task">
-                        <input value="Выставить задачу" type="submit" class="my-4 mar-lef btn btn-success">
+                        <input onclick="handleFiles()" value="Выставить задачу" type="submit" class="my-4 mar-lef btn btn-success">
+{#                        <input onclick="handleFiles()" value="Выставить задачу" type="submit" class="my-4 mar-lef btn btn-success">#}
 
                     </div>
                 </div>
@@ -304,7 +306,55 @@
     </div>
     </div>
     <!--end datetimepicker-->
+<script>
+    var txt_chek = 'txt'
+    const inputElement = document.getElementById("customFileLang");// вест эллемнт
+    inputElement.addEventListener("change", handleFiles, false);// по нажатию запуск функции слушатель
+    // если мы загрузили файл запусить функцию
+    function handleFiles() {
+        // this автоматом прилетает с айдишником
+        // указывает т очто мы делаем
+        const fileList = this.files; // this формируется при нажатиии в нем тот самый файлик files
+        {#console.log('fileList')#}
+        {#console.log(fileList)#}
+        {#console.log('required')#}
+        {#console.log(document.getElementById("customFileLang").required )#}
+        var name_srez = fileList[0].name
+        {#console.log(name_srez.split('.')[1])#}
+        {#console.log(document.getElementsByClassName('invalid-feedback')[0])#}
+        {#console.log('needs-validation')#}
+        {#console.log(document.getElementsByClassName('needs-validation')[0])#}
+        var point_name = name_srez.split('.')[1]
+        if (txt_chek == point_name){
+            console.log('norm')
+            document.getElementsByName('input_file')[0].style.border = '1px solid #28a745'
+            document.getElementById("customFileLang").required = true
+            {#console.log(document.getElementById("customFileLang").required)#}
+            document.getElementById('invalid-feedback-file').style.display = 'none'
+        }
+        else{
+            console.log('Taras ne_norm')
+            {#document.getElementById("customFileLang").required = false#}
+            {#console.log(document.getElementById("customFileLang").valid = false)#}
 
+            {#console.log('12345')#}
+            {#console.log(document.getElementsByClassName('form-control')[3])#}
+            {#console.log(document.getElementsByClassName('needs-validation')[0])#}
+
+            {#document.getElementById('invalid-feedback-file').innerHTML = 'херня'#}
+            document.getElementById('invalid-feedback-file').style.display = 'block'
+            document.getElementsByName('input_file')[0].style.border = '1px solid red'
+            console.log('delete')
+            document.getElementsByName('input_file')[0].value = '' // поле должно быть пустым
+
+            {#console.log('nol')#}
+            {#console.log(document.getElementById('invalid-feedback-file').style)#}
+            {#console.log('332')#}
+            {#console.log(document.getElementsByClassName('file-pad')[0].textContent)#}
+            {#alert('не верный формат')#}
+        }
+    }
+</script>
 {% endblock %}
 
 {% block JS %}<script type="text/javascript" src="{% static "lk/js/lk_admin.js" %}"></script>{% endblock JS %}

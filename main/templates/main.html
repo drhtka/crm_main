@@ -72,6 +72,7 @@
 
     {% autopaginate final_array 12 %}
     <div class="pagin-up mt-5 mb-5">{% paginate %}</div>
+    <div class="table-responsive">
     <table class="table table-striped">
         <thead>
         <tr>
@@ -124,6 +125,7 @@
 
         </tbody>
     </table>
+    </div>
     <div class="pagin-down">{% paginate %}</div>
     <!--table all end-->
 {% endblock crm-table %}

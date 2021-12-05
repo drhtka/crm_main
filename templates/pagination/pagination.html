@@ -6,7 +6,7 @@
     {% load i18n %}
     <div class="pagination">
         {% if page_obj.has_previous %}
-            <a href="?page={{ page_obj.previous_page_number }}{{ getvars }}{{ hashtag }}" class="prev pagination__link_state_active pagination__link line_null array">{% trans " < " %}</a>
+            <a href="?page={{ page_obj.previous_page_number }}{{ getvars }}{{ hashtag }}" class="prev pagination__link_state_active pagination__link line_null array">{% trans " &laquo; " %}</a>
         {% else %}
             <span class="disabled prev pagination__link_state_active pagination__link line_null" > {% trans "Первая&nbsp;&nbsp;" %}</span>
         {% endif %}
@@ -16,9 +16,9 @@
                     <!-- Вот здесь в вашем случае выводится текущая страница -->
                     <!-- можно добавить <b> или <strong> или попросту ничего не -->
                     <!-- перегружать, а описать класс current -->
-                    <span class="current page pagination__link_state_active pagination__link">{{ page }}</span>
+                    <span class="current page pagination__link_state_active pagination__link text-decoration-none">{{ page }}</span>
                 {% else %}
-                    <a href="?page={{ page }}{{ getvars }}{{ hashtag }}" class="page pagination__link_state_active pagination__link">
+                    <a href="?page={{ page }}{{ getvars }}{{ hashtag }}" class="page pagination__link_state_active pagination__link text-decoration-none">
                         {{ page }}</a>
                 {% endifequal %}
             {% else %}
@@ -27,7 +27,7 @@
         {% endfor %}
         {% if page_obj.has_next %}
             <a href="?page={{ page_obj.next_page_number }}{{ getvars }}{{ hashtag }}"
-               class="next pagination__link_state_active pagination__link line_null array pagination__link_index">{% trans " > " %}</a>
+               class="next pagination__link_state_active pagination__link line_null array pagination__link_index">{% trans " &raquo; " %}</a>
         {% else %}
             <span class="disabled next pagination__link_state_active pagination__link line_null">{% trans "&nbsp;&nbsp;Последняя" %}</span>
         {% endif %}

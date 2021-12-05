@@ -1,6 +1,9 @@
 
 .pagination{
-    margin-left: 38%;
+    /*margin-left: 38%;*/
+    justify-content: center;
+    margin-left: 22%;
+
 }
 
 .pagination__link_state_active {

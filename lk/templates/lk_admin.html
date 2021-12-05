@@ -148,7 +148,7 @@
     {#</form>#}
     <p class="get-task our-succes mt-3">Поставить задачу</p>
 
-    <form action="{% url 'createtask:lk_task' %}" enctype="multipart/form-data" method="post" class="needs-validation" novalidate>
+    <form action="{% url 'createtask:lk_task' %}" enctype="multipart/form-data" method="post" class="needs-validation form-lk-admin" novalidate>
         {% csrf_token %}
         <div class="row">
 
@@ -281,7 +281,7 @@
     <div class="row bloc_content">
 
     <div id=" col-md-8"></div>
-    <form action="." method="get" style="width: 28%;">
+    <form action="." method="get" class="form-lk-admin">
 
 
         {#    <button type="submit" class="btn btn-success">Submit</button>#}
@@ -294,7 +294,7 @@
                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
             </div>
         </div>
-            <button type="submit" id="select_date" class="btn btn-success my-3">Выбрать день</button>
+            <button type="submit" id="select_date" class="btn btn-success my-3 but-date">Выбрать день</button>
 
         <!-- конец Просмтр задач по выбранной дате в календаре-->
     </form>

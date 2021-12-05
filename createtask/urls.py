@@ -15,10 +15,7 @@ from django.conf.urls.static import static
 from createtask.views import LkTaskView
 
 urlpatterns = [
-
     path('lk_task/', LkTaskView.as_view(), name='lk_task'),
-
-
 ]
 
 

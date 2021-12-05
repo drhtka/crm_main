@@ -1,6 +1,7 @@
 
 .pagination{
-    margin-left: 38%;
+    /*margin-left: 38%;*/
+    justify-content: center;
 }
 
 .pagination__link_state_active {
@@ -48,6 +49,60 @@ a {
 .pagin-up{
     margin-left: -68px;
 }
+
 .pagin-down{
     margin-left: -47px;
+}
+
+.text_footer{
+    position: relative;
+}
+
+.pixel{
+    position: absolute;
+    top: 35px;
+    right: 49px;
+    width: 87%;
+    color: beige;
+    font-size: larger;
+    font-weight: bold;
+}
+
+@media  (min-width: 320px) and (max-width: 454px) {
+    .pixel{
+
+        width: 74%;
+
+    }
+}
+
+@media  (min-width: 320px) and (max-width: 575px) {
+    .disabled{
+        display: none;
+    }
+    .pagination{
+        /*margin-left: 38%;*/
+        margin-left: 22%;
+    }
+    .pagin-down{
+        display: flex;
+        justify-content: center;
+        margin-top: 39px;
+    }
+}
+
+@media  (min-width: 455px) and (max-width: 991px) {
+    .disabled{
+        display: none;
+    }
+    .pagination{
+        /*margin-left: 38%;*/
+        margin-left: 22%;
+    }
+
+    .pagin-down{
+        display: flex;
+        justify-content: center;
+        margin-top: 39px;
+    }
 }

@@ -61,3 +61,11 @@
     font-size: 80%;
     color: #dc3545;
 }
+.form-lk-admin{
+    width: 100%;
+}
+
+.but-date{
+    margin: 0 auto;
+    display: block;
+}

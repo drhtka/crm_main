@@ -65,24 +65,14 @@
   <div class="container">
   {% block header %}
 
-{#            <nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">#}
-{#                <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Company name</a>#}
-{#                <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">#}
-{#                <ul class="navbar-nav px-3">#}
-{#                    <li class="nav-item text-nowrap">#}
-{#                        <a class="nav-link" href="#">Sign out</a>#}
-{#                    </li>#}
-{#                </ul>#}
-{#            </nav>#}
-
       <nav class="navbar navbar-expand-lg navbar-dark header_my mt-3" style="background-color: #bbbbbb;">
       <a class="navbar-brand" href="{% url 'main:main' %}" id="brand">Главная</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ml-auto">
-
           {% if user.is_authenticated %}
         {% if user.role == '1' %}
             <li class="nav-item">
@@ -94,12 +84,6 @@
                   <a class="nav-link" href="{% url 'lk_user' %} ">Личный кабинет</a>
               </li>
             {% endif %}
-{##}
-{#              <li class="nav-item">#}
-{#                  <a class="nav-link" href="{% url 'roles' %}">Права пользователей</a>#}
-{#              </li>#}
-
-
 
               <li class="nav-item">
                   <a class="nav-link"><span class="user-text-cal-nav">Вы вошли как: </span><span class="user-text-cal-nav-2">{{ user.username }}</span></a>
@@ -111,7 +95,6 @@
             <li class="nav-item {% if request.path == update_url %} active {% endif %} ">
 {#              <a class="nav-link" href="{% url 'accounts:update' %} ">Профиль</a>#}
             </li>
-
           {% else %}
             <li class="nav-item {% if request.path == login_url %} active {% endif %}">
               <a class="nav-link" href="{% url 'accounts:login' %}">Войти</a>
@@ -120,7 +103,6 @@
               <a class="nav-link" href="{% url 'accounts:register' %}">Регистрация</a>
             </li>
           {% endif %}
-
         </ul>
       </div>
     </nav>
@@ -136,7 +118,6 @@
   <div class="container"></div>
       {% block content %}{% endblock content %}
 
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 {#    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>#}
@@ -145,13 +126,14 @@
     {% block JS %}{% endblock JS %}
   </div>
   <div class="footer_line">
-  {% block footer %}
 
-      <div class="footer_my container">
+  <div class=" container">
+  {% block footer %}
+      <div class="footer_my">
           <div class="text_footer"><span class="pixel">Copyright CRM</span></div>
       </div>
-
   {% endblock footer %}
+  </div>
   </div>
   </body>
 </html>

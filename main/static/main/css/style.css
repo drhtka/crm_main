@@ -74,6 +74,10 @@
     padding: 0px !important;
 }
 
+.date-flex-adm{
+    justify-content: space-between;
+}
+
 
 
 /* MEDIA */
@@ -93,13 +97,14 @@
         width: 100% !important;
     }
     .mar-lef {
-        margin-left: 200px;
+        margin: 0 auto;
         margin-top: 13px;
     }
-
-    .select-role-adm {
-        margin-top: 27px;
+    .padd-task{
+        margin: 0 auto !important;
+        width: 180px !important;
     }
+
     .select-role-adm {
         margin-left: 0% !important;
     }
@@ -114,6 +119,10 @@
     .d-flex{
         justify-content: center;
     }
+    .clock-flex{
+        margin: 0 !important;
+    }
+
 }
 
 @media  (min-width: 455px) and (max-width: 575px) {
@@ -131,13 +140,14 @@
         width: 100% !important;
     }
     .mar-lef {
-        margin-left: 200px;
+        margin: 0 auto !important;
         margin-top: 13px;
     }
-
-    .select-role-adm {
-        margin-top: 27px;
+    .padd-task{
+        margin: 0 auto !important;
+        width: 180px !important;
     }
+
     .select-role-adm {
         margin-left: 0% !important;
     }
@@ -149,6 +159,11 @@
     }
     .d-flex{
         justify-content: center;
+    }
+    .clock-flex{
+        margin-top: 0px;
+        margin-left: 0%;
+        margin-right: 0px;
     }
 
 }
@@ -169,12 +184,13 @@
     }
     .mar-lef {
         /*margin-left: 200px;*/
+        margin: 0 auto;
         margin-top: 13px;
     }
 
-    .select-role-adm {
-        margin-top: 27px;
-    }
+    /*.select-role-adm {*/
+    /*    margin-top: 27px;*/
+    /*}*/
     .select-role-adm {
         margin-left: 0% !important;
     }

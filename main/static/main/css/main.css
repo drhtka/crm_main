@@ -64,7 +64,8 @@ textarea .textarea_task{
 .get-task{
     font-family: Arial;
     font-size: 21px ;
-    margin-left: 41%;
+    /*margin-left: 41%;*/
+    text-align: center;
 }
 .pad-select{
     padding-top: 4px;
@@ -193,8 +194,11 @@ element.style {
 }
 
 .clock-flex{
-    display: flex;
+    /*display: flex;*/
+    margin: 0 auto;
     /*margin-top: 11px;*/
+    margin-left: 11%;
+    margin-right: -11px;
 }
 .padd-task{
     padding-left: 70%;
@@ -232,15 +236,16 @@ element.style {
 .stat-card{
     margin-top: 10px;
 }
-.button-select-all{
-    margin-top: 71px !important;
-    margin-left: -225px;
-}
+/*.button-select-all{*/
+/*    margin-top: 71px !important;*/
+/*    margin-left: -225px;*/
+/*}*/
 
-.button-select-all-adm{
-    margin-left: 3%;
-    margin-top: -25px;
-}
+/*.button-select-all-adm{*/
+/*    margin-left: 3%;*/
+/*    margin-top: -25px;*/
+/*}*/
+
 .header_my{
     border-radius: 3px;
 }
@@ -281,6 +286,5 @@ span.pixel {
     line-height: 1.2!important;
 }
 
-/*.invalid-feedback-file{*/
-/*    display: none;*/
-/*}*/
+
+

@@ -14,7 +14,7 @@ class MainPageView(View):
         #     # user.set_password(user.password)
         #     # print(user.password)
         #     user.save()
-        # print(request.session.get('my_list'))
+        print(request.session.get('my_list'))
         if request.session.get('my_list') != None:
             # request.session['my_list'] = []
             print('1')

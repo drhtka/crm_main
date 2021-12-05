@@ -66,6 +66,140 @@
 }
 
 .but-date{
-    margin: 0 auto;
+    margin: 0 !important;
     display: block;
+}
+
+.nav-link{
+    padding: 0px !important;
+}
+
+
+
+/* MEDIA */
+
+@media  (min-width: 320px) and (max-width: 454px) {
+    .select-role{
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+    .costum-file input {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+
+    .mar-top-time {
+        margin-left: 0px !important;
+        width: 100% !important;
+    }
+    .mar-lef {
+        margin-left: 200px;
+        margin-top: 13px;
+    }
+
+    .select-role-adm {
+        margin-top: 27px;
+    }
+    .select-role-adm {
+        margin-left: 0% !important;
+    }
+
+
+    .button-select-all-adm{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        margin: 0 auto;
+        margin-top: 21px;
+    }
+    .d-flex{
+        justify-content: center;
+    }
+}
+
+@media  (min-width: 455px) and (max-width: 575px) {
+    .select-role{
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+    .costum-file input {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+
+    .mar-top-time {
+        margin-left: 0px !important;
+        width: 100% !important;
+    }
+    .mar-lef {
+        margin-left: 200px;
+        margin-top: 13px;
+    }
+
+    .select-role-adm {
+        margin-top: 27px;
+    }
+    .select-role-adm {
+        margin-left: 0% !important;
+    }
+    .button-select-all-adm{
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        margin: 0 auto;
+        margin-top: 21px;
+    }
+    .d-flex{
+        justify-content: center;
+    }
+
+}
+
+@media  (min-width: 576px) and (max-width: 767px) {
+    .select-role{
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+    .costum-file input {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+
+    .mar-top-time {
+        margin-left: 0px !important;
+        width: 100% !important;
+    }
+    .mar-lef {
+        /*margin-left: 200px;*/
+        margin-top: 13px;
+    }
+
+    .select-role-adm {
+        margin-top: 27px;
+    }
+    .select-role-adm {
+        margin-left: 0% !important;
+    }
+
+    .clock-flex {
+        margin: 0 auto;
+        /*margin-left: 0%;*/
+        /*margin-right: 0px;*/
+    }
+    .button-select-all-adm{
+        margin: 0 auto;
+        margin-top: 21px;
+    }
+}
+
+@media  (min-width:767px) {
+    .mar-lef {
+        margin-left: 0px !important;
+
+    }
+}
+
+@media  (min-width: 998px)  and (max-width: 1199px) {
+    .mar-lef {
+        margin-left: 0px !important;
+
+    }
 }

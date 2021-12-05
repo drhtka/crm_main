@@ -85,6 +85,7 @@
     <div class="d-flex justify-content-sm-center my-3 our-succes">{{ no_task }}</div>
     {% autopaginate final_array 12 %}
     {% paginate %}
+    <div class="table-responsive">
     <table class="table table-striped {{ no_task_style }}">
         <thead>
         <tr>
@@ -133,6 +134,7 @@
         {% endfor %}
         </tbody>
     </table>
+    </div>
     <div class="pagin-down">{% paginate %}</div>
 </div>
     <!--table all end-->
@@ -202,7 +204,7 @@
                 <div class="row mt-4">
 
                     {##}
-                    <div class="col-md-6 clock-flex">
+                    <div class=" col-10 col-lg-4 col-md-5 col-sm-3 col-xl-3 clock-flex">
 
                         {#                    <input class="mar-top-time mar-lef my-0" name="time_tisk" placeholder="Время выполнения задачи">#}
                         <div class="mar-top-time mar-lef my-0">{{ form_date.time_task }}
@@ -226,7 +228,7 @@
                     <div></div>
 
                 </div>
-                <div class="row">
+                <div class="row justify-content-center">
                     <div class="col-md-4 mt-2 padd-task">
                         <input onclick="handleFiles()" value="Выставить задачу" type="submit" class="my-4 mar-lef btn btn-success">
 {#                        <input onclick="handleFiles()" value="Выставить задачу" type="submit" class="my-4 mar-lef btn btn-success">#}
@@ -278,32 +280,33 @@
         <div>{{ username_lk_s }}</div>
     {% endfor %}
     <!-- конец кокомментарии-->
-    <div class="row bloc_content">
+        <div class="row bloc_content">
 
-    <div id=" col-md-8"></div>
-    <form action="." method="get" class="form-lk-admin">
-
-
-        {#    <button type="submit" class="btn btn-success">Submit</button>#}
-        {#</form>#}
+            <div id="col-sm-6 col-md-6 col-xl-6">
+            <form action="." method="get" class="form-lk-admin">
 
 
-        <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
-            {{ form_manual.date }}
-            <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
-                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                {#    <button type="submit" class="btn btn-success">Submit</button>#}
+                {#</form>#}
+
+                <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                    {{ form_manual.date }}
+                    <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+
+                    <button type="submit" id="select_date" class="btn btn-success but-date ml-3">Выбрать день</button>
+                <!-- конец Просмтр задач по выбранной дате в календаре-->
+                </div>
+            </form>
+            </div>
+
+            <div class="button-select-all-adm col-5 col-sm-5 col-md-5 col-lg-5 col-xl-6">
+                <a class="nav-link button-select-all" href="{% url 'lk_admin' %} ">
+                    <button type="submit" class="btn btn-success">Показать все задачи</button>
+                </a>
             </div>
         </div>
-            <button type="submit" id="select_date" class="btn btn-success my-3 but-date">Выбрать день</button>
-
-        <!-- конец Просмтр задач по выбранной дате в календаре-->
-    </form>
-    <div class="button-select-all-adm">
-        <a class="nav-link button-select-all" href="{% url 'lk_admin' %} ">
-            <button type="submit" class="btn btn-success">Показать все задачи</button>
-        </a>
-    </div>
-    </div>
     </div>
     <!--end datetimepicker-->
 <script>

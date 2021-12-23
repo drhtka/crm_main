@@ -68,8 +68,13 @@
 .but-date{
     margin: 0 !important;
     display: block;
+    margin-left: 27px !important;
+
 }
 
+.bloc_content_child{
+    padding-left: 0 !important;
+}
 .nav-link{
     padding: 0px !important;
 }
@@ -78,8 +83,33 @@
     justify-content: space-between;
 }
 
+.bloc_content{
+    margin: 0 auto !important;
+    /*width: 455px;*/
+    width: 100%;
+
+}
+.header_my{
+    background-color: #bbbbbb;
+    font-size: 25px;
+}
+.header_my a{
+    background-color: #bbbbbb;
+    font-size: 25px;
+}
+.user-text-cal-nav-2{
+    background-color: #bbbbbb;
+    font-size: 25px;
+}
 
 
+.navbar-brand-lk-admin{
+    margin: 0 auto;
+    /*margin-left: 25%;*/
+    width: auto;
+    font-size: 25px !important;
+
+}
 /* MEDIA */
 
 @media  (min-width: 320px) and (max-width: 454px) {
@@ -110,17 +140,38 @@
     }
 
 
-    .button-select-all-adm{
-        padding-left: 0px !important;
-        padding-right: 0px !important;
-        margin: 0 auto;
-        margin-top: 21px;
-    }
     .d-flex{
         justify-content: center;
     }
     .clock-flex{
         margin: 0 !important;
+    }
+    .bloc_content{
+        /*width: 297px;*/
+        margin: 0 auto !important;
+
+    }
+
+    .navbar-brand-lk-admin{
+
+        width: fit-content;
+        margin-left: 2%;
+
+    }
+
+    .but-date{
+        position: relative;
+        margin-left:21px !important;
+
+    }
+
+    .button-select-all-adm{
+        position: absolute;
+        /*padding-left: 0px !important;*/
+        /*padding-right: 0px !important;*/
+        /*margin: 0 auto;*/
+        margin-top: 21px;
+        padding-left: 0px !important;
     }
 
 }
@@ -152,10 +203,9 @@
         margin-left: 0% !important;
     }
     .button-select-all-adm{
-        padding-left: 0px !important;
-        padding-right: 0px !important;
         margin: 0 auto;
         margin-top: 21px;
+
     }
     .d-flex{
         justify-content: center;
@@ -164,6 +214,31 @@
         margin-top: 0px;
         margin-left: 0%;
         margin-right: 0px;
+    }
+    .bloc_content{
+        margin: 0 auto !important;
+        width: 455px;
+
+    }
+    .navbar-brand-lk-admin{
+
+        width: fit-content;
+        margin-left: 2%;
+
+    }
+    .but-date{
+        position: relative;
+        margin-left:21px !important;
+        margin-right: 2% !important;
+    }
+
+    .button-select-all-adm{
+        position: absolute;
+        /*padding-left: 0px !important;*/
+        /*padding-right: 0px !important;*/
+        /*margin: 0 auto;*/
+        margin-top: 21px;
+        padding-left: 0 !important;
     }
 
 }
@@ -202,20 +277,84 @@
     }
     .button-select-all-adm{
         margin: 0 auto;
-        margin-top: 21px;
+
+    }
+
+    .navbar-brand-lk-admin{
+
+        width: fit-content;
+        margin-left: 2%;
+
+    }
+    .but-date{
+        position: relative;
+        margin-left:21px !important;
+
+    }
+
+    .button-select-all-adm{
+        position: absolute !important;
+        right: 61px;
+        /*padding-left: 0px !important;*/
+        /*padding-right: 0px !important;*/
+        /*margin: 0 auto;*/
+
     }
 }
 
-@media  (min-width:767px) {
+@media  (min-width:767px)   and (max-width: 997px) {
     .mar-lef {
         margin-left: 0px !important;
 
+    }
+    .button-select-all-adm{
+        margin: 0 auto;
+        /*margin-top: 21px;*/
+        margin-right: 56px;
+    }
+    .navbar-brand-lk-admin{
+        margin: 0 auto;
+        margin-left: 2%;
+        width: fit-content;
+    }
+
+    .but-date {
+        margin-left: 27px !important;
     }
 }
 
 @media  (min-width: 998px)  and (max-width: 1199px) {
     .mar-lef {
         margin-left: 0px !important;
-
     }
+    .pagin-down{
+        margin-top: 39px;
+    }
+    .navbar-brand-lk-admin{
+        margin: 0 auto;
+        margin-left: 12%;
+        width: fit-content;
+    }
+
+    .but-date {
+        margin-left: 27px !important;
+    }
+}
+
+@media  (min-width:1200px)  and (max-width: 1400px) {
+    .mar-lef {
+        margin-left: 0px !important;
+    }
+    .pagin-down{
+        margin-top: 39px;
+    }
+    .navbar-brand-lk-admin{
+        margin: 0 auto;
+        margin-left: 12%;
+        width: fit-content;
+    }
+    .but-date {
+        margin-left: 27px !important;
+    }
+
 }

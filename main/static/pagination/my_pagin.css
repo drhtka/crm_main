@@ -46,13 +46,14 @@ a {
     /*text-decoration: underline;  Добавляем подчеркивание */
 }
 
-.pagin-up{
-    margin-left: -68px;
-}
+/*.pagin-up{*/
+/*    margin-left: -68px;*/
+/*}*/
 
-.pagin-down{
-    margin-left: -47px;
-}
+/*.pagin-down{*/
+/*    margin-left: -47px;*/
+
+/*}*/
 
 .text_footer{
     position: relative;
@@ -80,10 +81,10 @@ a {
     .disabled{
         display: none;
     }
-    .pagination{
-        /*margin-left: 38%;*/
-        margin-left: 22%;
-    }
+    /*.pagination{*/
+    /*    !*margin-left: 38%;*!*/
+    /*    margin-left: 22%;*/
+    /*}*/
     .pagin-down{
         display: flex;
         justify-content: center;
@@ -91,18 +92,24 @@ a {
     }
 }
 
-@media  (min-width: 455px) and (max-width: 991px) {
+@media  (min-width: 576px) and (max-width: 454px) {
+    .pagin-down{
+        margin-top: 39px;
+    }
+}
+@media  (min-width: 455px) and (max-width: 1051px) {
     .disabled{
         display: none;
     }
-    .pagination{
-        /*margin-left: 38%;*/
-        margin-left: 22%;
-    }
+    /*.pagination{*/
+    /*    !*margin-left: 38%;*!*/
+    /*    margin-left: 22%;*/
+    /*}*/
 
     .pagin-down{
         display: flex;
         justify-content: center;
+
         margin-top: 39px;
     }
 }

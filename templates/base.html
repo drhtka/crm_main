@@ -51,6 +51,12 @@
               user-select: none;
           }
 
+          .nav-item{
+              padding-left: 15px;
+              padding-right: 15px;
+
+          }
+
           @media (min-width: 768px) {
               .bd-placeholder-img-lg {
                   font-size: 3.5rem;
@@ -62,7 +68,7 @@
     <title>{% block title %}СРМ {% endblock %}</title>
   </head>
   <body>
-  <div class="container">
+  <div class="container"></div>
   {% block header %}
 
       <nav class="navbar navbar-expand-lg navbar-dark header_my mt-3" style="background-color: #bbbbbb;">
@@ -109,8 +115,13 @@
 
   {% endblock header %}
 
+  <div class="container">
   {% block body %}
+      <div class=" container"></div>
       {% block lk %}{% endblock lk %}
+
+
+
   {% block crm-table %}
   {% endblock crm-table %}
 {#  {% block lk %}{% endblock lk %}#}
@@ -127,13 +138,13 @@
   </div>
   <div class="footer_line">
 
-  <div class=" container">
+  <div class="container"></div>
   {% block footer %}
       <div class="footer_my">
           <div class="text_footer"><span class="pixel">Copyright CRM</span></div>
       </div>
   {% endblock footer %}
-  </div>
+
   </div>
   </body>
 </html>

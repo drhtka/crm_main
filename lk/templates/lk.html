@@ -4,46 +4,9 @@
 {% load pagination_tags %}
 
 {% load static %}
-{#{% block extra_head %}#}
-{#    <script src="{% static 'vendor/moment.js-2.23.0/moment.min.js' %}"></script>#}
-{##}
-{#    <link rel="stylesheet" href="{% static 'vendor/bootstrap-4-5.1.2/css/tempusdominus-bootstrap-4.min.css' %}">#}
-{#    <script src="{% static 'vendor/bootstrap-4-5.1.2/js/tempusdominus-bootstrap-4.min.js' %}"></script>#}
-{#{% endblock %}#}
+
 {% block lk %}
-<!DOCTYPE html>
-<html lang="ru">
-{% comment %}<head>
-    <meta charset="UTF-8">
-    <title>{{ lk_email }}</title>
-    <!-- jQuery -->
-    <!--  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
 
-{#     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>#}
-
-
-    {% block extra_head %}
-    {% endblock %}
-
-    <!-- CSS  -->
-    <link href="{% static "main/css/style.css" %}" rel="stylesheet">
-    <!-- Bootstrap -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-
-    <!-- Font Awesome -->
-    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-{#    <script src="{% static 'vendor/moment.js-2.23.0/moment.min.js' %}"></script>#}
-
-    <link rel="stylesheet" href="{% static 'vendor/bootstrap-4-5.1.2/css/tempusdominus-bootstrap-4.min.css' %}">
-    <script src="{% static 'vendor/bootstrap-4-5.1.2/js/tempusdominus-bootstrap-4.min.js' %}"></script>
-    <script src="{% static 'vendor/moment.js-2.23.0/moment.min.js' %}"></script>
-
-{#    <link rel="stylesheet" href="{% static 'vendor/bootstrap-4-5.1.2/css/tempusdominus-bootstrap-4.min.css' %}">#}
-{#    <script src="{% static 'vendor/bootstrap-4-5.1.2/js/tempusdominus-bootstrap-4.min.js' %}"></script>#}
-</head>{% endcomment %}
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -72,6 +35,12 @@
         .no_task_style{
             display: none;
         }
+        @media  (min-width: 576px){
+
+            .button-select-all-adm {
+                margin-top: 0px;
+            }
+        }
     </style>
 </head>
 
@@ -84,6 +53,7 @@
 <div class="d-flex justify-content-sm-center my-3 our-succes">{{ no_task }}</div>
     {% autopaginate data 12 %}
     {% paginate %}
+    <div class="table-responsive">
     <table class="table table-striped {{ no_task_style }}">
         <thead>
         <tr>
@@ -134,6 +104,7 @@
         {% endfor %}
         </tbody>
     </table>
+    </div>
     <div class="pagin-down">{% paginate %}</div>
     <!--table all end-->
 
@@ -141,33 +112,29 @@
 
 <!--flex-->
 </div>
-      <div class="container">
-          <div class="row">
-              <div class="col-lg-4 col-md-6 mt-3">
+<!--flex<div class="container"></div>-->
+          <div class="row bloc_content justify-content-center">
+              <div class="col-sm-6 col-md-6 col-xl-6 ">
                 <form action="." method="get">
-
                         <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
                             {{ form_manual.date }}
                             <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                             </div>
+                            <button type="submit" id="select_date" class="btn btn-success but-date ml-3" value="">Выбрать день</button>
                         </div>
-
-                      <div id="bloc_content">
-                          <button type="submit" id="select_date" class="btn btn-success my-4" value="">Выбрать день</button>
-                      </div>
                 <!-- конец Просмтр задач по выбранной дате в календаре-->
                 </form>
 
               </div>
-              <div id="bloc_content" class=" col-md-6">
+              <div id="bloc_content" class="button-select-all-adm col-5 col-sm-5 col-md-5 col-lg-5 col-xl-6">
                   <a class="nav-link button-select-all" href="{% url 'lk_user' %} ">
                       <input type="hidden" name="user_id" value="{{ user.id }}">
                       <button type="submit" id="select_date" class="btn btn-success">Показать все задачи</button>
                   </a>
               </div>
           </div>
-      </div>
+
 
 <script>
     $(function () {

@@ -27,13 +27,13 @@
     {#                </ul>#}
     {#            </nav>#}
 
-    <nav class="navbar navbar-expand-lg navbar-dark header_my mt-3 " style="background-color: #bbbbbb;">
-        <a class="navbar-brand" href="{% url 'main:main' %}" id="brand">Главная</a>
+    <nav class="navbar navbar-expand-lg navbar-dark header_my mt-3 " >
+        <a class="navbar-brand navbar-brand-lk-admin" href="{% url 'main:main' %}" id="brand">Главная</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav navbar-nav ml-auto">
 
                 {% if user.is_authenticated %}
 {##}
@@ -231,8 +231,8 @@
 
 
                 <div class="row justify-content-center">
-                    <div class="col-6 col-lg-4 col-md-4 mt-2 padd-task">
-                        <input onclick="handleFiles()" value="Выставить задачу" type="submit" class="my-4 mar-lef btn btn-success">
+                    <div class="col-5 col-lg-4 col-md-4 mt-2 padd-task">
+                        <input onclick="handleFiles()" value="Выставить задачу" type="submit" class="my-2 mar-lef btn btn-success">
 {#                        <input onclick="handleFiles()" value="Выставить задачу" type="submit" class="my-4 mar-lef btn btn-success">#}
 
                     </div>
@@ -250,7 +250,9 @@
 
     <!--Таблица время на задачи-->
     <div class="w-100"></div>
+
     <div class="d-flex justify-content-sm-center my-3 our-succes">Зарплата сотрудников и наработанные часы</div>
+    <div class="table-responsive">
     <table class="table table-striped">
         <thead>
         <tr>
@@ -262,15 +264,15 @@
         <tbody>
         <p>{% for all_array_end_s in all_array_end %}</p>
             <tr>
-
                 <td>{{ all_array_end_s.0 }}</td>
-                <td>{{ all_array_end_s.1 }}</td>
+                <td class="">{{ all_array_end_s.1 }}</td>
                 <td>{{ all_array_end_s.2 }}</td>
             </tr>
 
         {% endfor %}
         </tbody>
     </table>
+    </div>
     <!-- конец таблицы время на задачи -->
     <!-- кокомментарии-->
     {% for new_tsk_tmp_array_s_s in new_tsk_tmp_array_s %}
@@ -283,27 +285,22 @@
     {% endfor %}
     <!-- конец кокомментарии-->
         <div class="row bloc_content">
-
-            <div id="col-sm-6 col-md-6 col-xl-6">
+            <div class="col-12 col-sm-6 col-md-6 col-xl-6 bloc_content_child">
             <form action="." method="get" class="form-lk-admin">
-
-
                 {#    <button type="submit" class="btn btn-success">Submit</button>#}
                 {#</form>#}
-
                 <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
                     {{ form_manual.date }}
                     <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                     </div>
-
-                    <button type="submit" id="select_date" class="btn btn-success but-date ml-3">Выбрать день</button>
+                    <button type="submit" id="select_date" class="btn btn-success but-date ">Выбрать день</button>
                 <!-- конец Просмтр задач по выбранной дате в календаре-->
                 </div>
             </form>
             </div>
 
-            <div class="button-select-all-adm col-5 col-sm-5 col-md-5 col-lg-5 col-xl-6">
+            <div class="button-select-all-adm col-12 col-sm-5 col-md-5 col-lg-5 col-xl-6">
                 <a class="nav-link button-select-all" href="{% url 'lk_admin' %} ">
                     <button type="submit" class="btn btn-success">Показать все задачи</button>
                 </a>

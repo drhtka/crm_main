@@ -1,0 +1,12 @@
+{"python.pythonPath": "venv\\Scripts\\python.exe",
+    "python.linting.pylintEnabled": true,
+    "files.autoSave": "onFocusChange",
+    "python.autoComplete.extraPaths": [
+        
+        "${workspaceRoot}\\Lib\\site-packages"
+    ],
+    "python.linting.enabled": true,
+    "python.analysis.extraPaths": [
+        "${workspaceRoot}\\Lib\\site-packages"
+    ]
+}

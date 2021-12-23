@@ -211,4 +211,4 @@ ENV/
 # mkdocs documentation
 /site
 .settings.py
-#crm_main/settings.py
+crm_main/settings.py

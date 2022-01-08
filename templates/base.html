@@ -52,9 +52,8 @@
           }
 
           .nav-item{
-              padding-left: 15px;
-              padding-right: 15px;
-
+              {#padding-left: 15px;#}
+              {#padding-right: 15px;#}
           }
 
           @media (min-width: 768px) {
@@ -68,16 +67,16 @@
     <title>{% block title %}СРМ {% endblock %}</title>
   </head>
   <body>
-  <div class="container"></div>
-  {% block header %}
 
+  {% block header %}
+      <div class="container"></div>
       <nav class="navbar navbar-expand-lg navbar-dark header_my mt-3" style="background-color: #bbbbbb;">
       <a class="navbar-brand" href="{% url 'main:main' %}" id="brand">Главная</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse navbar-collapse-z" id="navbarNav">
         <ul class="navbar-nav ml-auto">
           {% if user.is_authenticated %}
         {% if user.role == '1' %}
@@ -134,14 +133,17 @@
 {#    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>#}
 {#    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>#}
 {#    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>#}
-    {% block JS %}{% endblock JS %}
+    {% block JS %}
+
+    {% endblock JS %}
   </div>
   <div class="footer_line">
 
   <div class="container"></div>
   {% block footer %}
-      <div class="footer_my">
-          <div class="text_footer"><span class="pixel">Copyright CRM</span></div>
+      <div class="footer_my row justify-content-center">
+          <div class="text_footer"><span class="pixel">CRM</span></div>
+          <div class="ml-5- link-portfolio"><a class="text-white text-decoration-none" href="http://www.портфолио.pp.ua/">Портфолио</a></div>
       </div>
   {% endblock footer %}
 

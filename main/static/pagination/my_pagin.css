@@ -55,19 +55,10 @@ a {
 
 /*}*/
 
-.text_footer{
-    position: relative;
-}
+/*.text_footer{*/
+/*    position: relative;*/
+/*}*/
 
-.pixel{
-    position: absolute;
-    top: 35px;
-    right: 49px;
-    width: 87%;
-    color: beige;
-    font-size: larger;
-    font-weight: bold;
-}
 
 @media  (min-width: 320px) and (max-width: 454px) {
     .pixel{

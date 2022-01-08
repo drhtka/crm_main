@@ -1,3 +1,6 @@
+body{
+    overflow-x: hidden;
+}
 .main-table{
     margin: 0 auto;
     margin-top: 33px;
@@ -254,8 +257,40 @@ element.style {
     background-color: #bbbbbb;
     height: 100px;
     border-radius: 3px;
-    /*padding-top: 100px;*/
+    padding-top: 39px;
 }
+
+.pixel{
+    /*position: absolute;*/
+    /*top: 35px;*/
+    /*right: 49px;*/
+    /*width: 87%;*/
+    color: beige;
+    font-size: larger;
+    font-weight: bold;
+    margin-right: 50px;
+}
+
+.link-portfolio{
+    color: beige;
+    font-size: larger;
+    font-weight: bold;
+    margin-left: 50px;
+    /*position: absolute;*/
+    /*right: 0px;*/
+    /*width: 87%;*/
+    /*font-size: larger;*/
+    /*font-weight: bold;*/
+    /*left: 519px;*/
+    /*margin-top: 32px;*/
+
+}
+
+.errorlist{
+    color: red;
+}
+
+
 .container.footer_line{
     height: 160px;
     padding-top: 40px;
@@ -272,10 +307,10 @@ element.style {
     /*margin-left: 141px;*/
     border-radius: 30px;
 }
-span.pixel {
-    vertical-align: -39px;
-    margin-left: 900px;
-}
+/*span.pixel {*/
+/*    vertical-align: -39px;*/
+/*    margin-left: 900px;*/
+/*}*/
 .bloc_content{
     margin-left: 0px!important;
 }
@@ -286,6 +321,7 @@ span.pixel {
 .hi-tr{
     line-height: 1.2!important;
 }
+
 
 
 

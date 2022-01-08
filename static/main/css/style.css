@@ -53,3 +53,347 @@
      justify-content: space-between; /*расстягиват по краям*/
      width: 50%;
  }
+#invalid-feedback-file{
+    display: none;
+    margin-left: 67px;
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+.form-lk-admin{
+    width: 100%;
+}
+
+.but-date{
+    margin: 0 !important;
+    display: block;
+    margin-left: 27px !important;
+
+}
+
+.bloc_content_child{
+    padding-left: 0 !important;
+}
+.nav-link{
+    /*padding: 0px !important;*/
+    padding-right: 34px !important;
+    padding-left: .5rem !important;
+    color: white !important;
+}
+
+.date-flex-adm{
+    justify-content: space-between;
+}
+
+.bloc_content{
+    margin: 0 auto !important;
+    /*width: 455px;*/
+    width: 100%;
+
+}
+.header_my{
+    background-color: #bbbbbb;
+    font-size: 25px;
+}
+.header_my a{
+    background-color: #bbbbbb;
+    font-size: 25px;
+}
+.user-text-cal-nav-2{
+    background-color: #bbbbbb;
+    font-size: 25px;
+}
+
+
+.navbar-brand-lk-admin{
+    margin: 0 auto;
+    /*margin-left: 25%;*/
+    width: auto;
+    font-size: 25px !important;
+
+}
+
+.navbar-collapse-z{
+    z-index: 1;
+    margin-right: -16px;
+    margin-left: -16px;
+}
+
+
+
+
+/* MEDIA */
+
+@media  (min-width: 320px) and (max-width: 454px) {
+    .select-role{
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+    .costum-file input {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+
+    .mar-top-time {
+        margin-left: 0px !important;
+        width: 100% !important;
+    }
+    .mar-lef {
+        margin: 0 auto;
+        margin-top: 13px;
+    }
+    .padd-task{
+        margin: 0 auto !important;
+        width: 180px !important;
+    }
+
+    .select-role-adm {
+        margin-left: 0% !important;
+    }
+
+
+    .d-flex{
+        justify-content: center;
+    }
+    .clock-flex{
+        margin: 0 !important;
+    }
+    .bloc_content{
+        /*width: 297px;*/
+        margin: 0 auto !important;
+
+    }
+
+    .navbar-brand-lk-admin{
+
+        width: fit-content;
+        margin-left: 2%;
+
+    }
+
+    .but-date{
+        position: relative;
+        margin-left:21px !important;
+
+    }
+
+    .button-select-all-adm{
+        position: absolute;
+        /*padding-left: 0px !important;*/
+        /*padding-right: 0px !important;*/
+        /*margin: 0 auto;*/
+        margin-top: 21px;
+        padding-left: 0px !important;
+    }
+    .nav-link{
+        /*padding: 0px !important;*/
+        padding-right: 34px !important;
+        padding-left: 1.2rem !important;
+        color: white !important;
+    }
+
+}
+
+@media  (min-width: 455px) and (max-width: 575px) {
+    .select-role{
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+    .costum-file input {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+
+    .mar-top-time {
+        margin-left: 0px !important;
+        width: 100% !important;
+    }
+    .mar-lef {
+        margin: 0 auto !important;
+        margin-top: 13px;
+    }
+    .padd-task{
+        margin: 0 auto !important;
+        width: 180px !important;
+    }
+
+    .select-role-adm {
+        margin-left: 0% !important;
+    }
+    .button-select-all-adm{
+        margin: 0 auto;
+        margin-top: 21px;
+
+    }
+    .d-flex{
+        justify-content: center;
+    }
+    .clock-flex{
+        margin-top: 0px;
+        margin-left: 0%;
+        margin-right: 0px;
+    }
+    .bloc_content{
+        margin: 0 auto !important;
+        width: 455px;
+
+    }
+    .navbar-brand-lk-admin{
+
+        width: fit-content;
+        margin-left: 2%;
+
+    }
+    .but-date{
+        position: relative;
+        margin-left:21px !important;
+        margin-right: 2% !important;
+    }
+
+    .button-select-all-adm{
+        position: absolute;
+        /*padding-left: 0px !important;*/
+        /*padding-right: 0px !important;*/
+        /*margin: 0 auto;*/
+        margin-top: 21px;
+        padding-left: 0 !important;
+    }
+
+    .nav-link{
+        /*padding: 0px !important;*/
+        padding-right: 34px !important;
+        padding-left: 1.2rem !important;
+
+    }
+
+}
+
+@media  (min-width: 576px) and (max-width: 767px) {
+    .select-role{
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+    .costum-file input {
+        margin-left: 0 !important;
+        width: 100%;
+    }
+
+    .mar-top-time {
+        margin-left: 0px !important;
+        width: 100% !important;
+    }
+    .mar-lef {
+        /*margin-left: 200px;*/
+        margin: 0 auto;
+        margin-top: 13px;
+    }
+
+    /*.select-role-adm {*/
+    /*    margin-top: 27px;*/
+    /*}*/
+    .select-role-adm {
+        margin-left: 0% !important;
+    }
+
+    .clock-flex {
+        margin: 0 auto;
+        /*margin-left: 0%;*/
+        /*margin-right: 0px;*/
+    }
+    .button-select-all-adm{
+        margin: 0 auto;
+
+    }
+
+    .navbar-brand-lk-admin{
+
+        width: fit-content;
+        margin-left: 2%;
+
+    }
+    .but-date{
+        position: relative;
+        margin-left:21px !important;
+
+    }
+
+    .button-select-all-adm{
+        position: absolute !important;
+        right: 61px;
+        /*padding-left: 0px !important;*/
+        /*padding-right: 0px !important;*/
+        /*margin: 0 auto;*/
+
+    }
+    .nav-link{
+        /*padding: 0px !important;*/
+        padding-right: 34px !important;
+        padding-left: 1.2rem !important;
+
+    }
+}
+
+@media  (min-width:767px)   and (max-width: 997px) {
+    .mar-lef {
+        margin-left: 0px !important;
+
+    }
+    .button-select-all-adm{
+        margin: 0 auto;
+        /*margin-top: 21px;*/
+        margin-right: 56px;
+    }
+    .navbar-brand-lk-admin{
+        margin: 0 auto;
+        margin-left: 2%;
+        width: fit-content;
+    }
+
+    .but-date {
+        margin-left: 27px !important;
+    }
+    .nav-link{
+        /*padding: 0px !important;*/
+        padding-right: 34px !important;
+        padding-left: 1.2rem !important;
+
+    }
+
+}
+
+@media  (min-width: 998px)  and (max-width: 1199px) {
+    .mar-lef {
+        margin-left: 0px !important;
+    }
+    .pagin-down{
+        margin-top: 39px;
+    }
+    .navbar-brand-lk-admin{
+        margin: 0 auto;
+        margin-left: 12%;
+        width: fit-content;
+    }
+
+    .but-date {
+        margin-left: 27px !important;
+    }
+}
+
+@media  (min-width:1200px)  and (max-width: 1400px) {
+    .mar-lef {
+        margin-left: 0px !important;
+    }
+    .pagin-down{
+        margin-top: 39px;
+    }
+    .navbar-brand-lk-admin{
+        margin: 0 auto;
+        margin-left: 12%;
+        width: fit-content;
+    }
+    .but-date {
+        margin-left: 27px !important;
+    }
+
+}

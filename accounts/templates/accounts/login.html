@@ -1,7 +1,11 @@
 {% extends "base.html" %}
+{% load static %}
 
-{% block title %} Login {% endblock %}
+{% block title %} Вход {% endblock %}
+{% block extra_head %}
+    <link href="/docs/4.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
+{% endblock %}
 {% block crm-table %}{% endblock crm-table %}
 
 {% block content %}
@@ -14,7 +18,6 @@
         {{ form.as_p }}
         </div>
         <input type="hidden" name="loggin">
-
         <button type="submit" class="btn btn-primary">Войти</button>
     </form>
     </div>
@@ -27,4 +30,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script src="dashboard.js"></script>
+
+    <script type="text/javascript" src='{% static "main/js/jquery.min.js" %}'></script>
+    <script type="text/javascript" src='{% static "main/js/popper.min.js" %}'></script>
+    <script type="text/javascript" src='{% static "main/js/bootstrap.min.js" %}'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.1/chart.min.js"></script>
 {% endblock JS %}

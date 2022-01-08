@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 
 {% block title %} Register {% endblock %}
 {% block crm-table %}{% endblock crm-table %}
@@ -23,4 +24,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.9.0/feather.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
     <script src="dashboard.js"></script>
+
+    <script type="text/javascript" src='{% static "main/js/jquery.min.js" %}'></script>
+    <script type="text/javascript" src='{% static "main/js/popper.min.js" %}'></script>
+    <script type="text/javascript" src='{% static "main/js/bootstrap.min.js" %}'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.3.1/chart.min.js"></script>
 {% endblock JS %}

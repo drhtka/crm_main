@@ -76,7 +76,10 @@
     padding-left: 0 !important;
 }
 .nav-link{
-    padding: 0px !important;
+    /*padding: 0px !important;*/
+    padding-right: 34px !important;
+    padding-left: .5rem !important;
+    color: white !important;
 }
 
 .date-flex-adm{
@@ -110,6 +113,16 @@
     font-size: 25px !important;
 
 }
+
+.navbar-collapse-z{
+    z-index: 1;
+    margin-right: -16px;
+    margin-left: -16px;
+}
+
+
+
+
 /* MEDIA */
 
 @media  (min-width: 320px) and (max-width: 454px) {
@@ -172,6 +185,12 @@
         /*margin: 0 auto;*/
         margin-top: 21px;
         padding-left: 0px !important;
+    }
+    .nav-link{
+        /*padding: 0px !important;*/
+        padding-right: 34px !important;
+        padding-left: 1.2rem !important;
+        color: white !important;
     }
 
 }
@@ -241,6 +260,13 @@
         padding-left: 0 !important;
     }
 
+    .nav-link{
+        /*padding: 0px !important;*/
+        padding-right: 34px !important;
+        padding-left: 1.2rem !important;
+
+    }
+
 }
 
 @media  (min-width: 576px) and (max-width: 767px) {
@@ -300,6 +326,12 @@
         /*margin: 0 auto;*/
 
     }
+    .nav-link{
+        /*padding: 0px !important;*/
+        padding-right: 34px !important;
+        padding-left: 1.2rem !important;
+
+    }
 }
 
 @media  (min-width:767px)   and (max-width: 997px) {
@@ -321,6 +353,13 @@
     .but-date {
         margin-left: 27px !important;
     }
+    .nav-link{
+        /*padding: 0px !important;*/
+        padding-right: 34px !important;
+        padding-left: 1.2rem !important;
+
+    }
+
 }
 
 @media  (min-width: 998px)  and (max-width: 1199px) {

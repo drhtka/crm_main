@@ -2,8 +2,6 @@
 .pagination{
     /*margin-left: 38%;*/
     justify-content: center;
-    margin-left: 22%;
-
 }
 
 .pagination__link_state_active {
@@ -48,9 +46,61 @@ a {
     /*text-decoration: underline;  Добавляем подчеркивание */
 }
 
-.pagin-up{
-    margin-left: -68px;
+/*.pagin-up{*/
+/*    margin-left: -68px;*/
+/*}*/
+
+/*.pagin-down{*/
+/*    margin-left: -47px;*/
+
+/*}*/
+
+/*.text_footer{*/
+/*    position: relative;*/
+/*}*/
+
+
+@media  (min-width: 320px) and (max-width: 454px) {
+    .pixel{
+
+        width: 74%;
+
+    }
 }
-.pagin-down{
-    margin-left: -47px;
+
+@media  (min-width: 320px) and (max-width: 575px) {
+    .disabled{
+        display: none;
+    }
+    /*.pagination{*/
+    /*    !*margin-left: 38%;*!*/
+    /*    margin-left: 22%;*/
+    /*}*/
+    .pagin-down{
+        display: flex;
+        justify-content: center;
+        margin-top: 39px;
+    }
+}
+
+@media  (min-width: 576px) and (max-width: 454px) {
+    .pagin-down{
+        margin-top: 39px;
+    }
+}
+@media  (min-width: 455px) and (max-width: 1051px) {
+    .disabled{
+        display: none;
+    }
+    /*.pagination{*/
+    /*    !*margin-left: 38%;*!*/
+    /*    margin-left: 22%;*/
+    /*}*/
+
+    .pagin-down{
+        display: flex;
+        justify-content: center;
+
+        margin-top: 39px;
+    }
 }

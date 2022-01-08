@@ -10,7 +10,7 @@ console.log(serch_input)
 //<!-- datetimepicker-->
 $(function () {
     $("#datetimepicker1").datetimepicker({
-        format: 'DD-MM-YYYY ', /*'DD-MM-YYYY HH:mm', отключили часы*/
+        format: 'DD-MM-YYYY', /*'DD-MM-YYYY HH:mm', отключили часы*/
         locale: 'ru',
     });
 });
@@ -42,3 +42,4 @@ $(function () {
             }, false)
         })
 })()
+
